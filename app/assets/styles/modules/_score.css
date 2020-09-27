@@ -1,0 +1,17 @@
+.score {
+  color: white;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.score h2 {
+  font-size: 2rem;
+}
+
+.score p {
+  text-align: center;
+  padding: 1rem 0rem;
+  font-size: 1.5rem;
+}

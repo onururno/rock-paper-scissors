@@ -1,0 +1,7 @@
+.intro {
+  height: 50vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
