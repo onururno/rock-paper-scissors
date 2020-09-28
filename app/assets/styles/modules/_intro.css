@@ -4,4 +4,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  transition: opacity 0.5s ease;
+}
+
+.intro h1 {
+  font-size: 3rem;
 }

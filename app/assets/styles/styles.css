@@ -2,3 +2,6 @@
 @import "modules/_section";
 @import "modules/_score";
 @import "modules/_intro";
+@import "modules/_match";
+@import "modules/_button";
+@import "modules/_keyframe";
