@@ -15,10 +15,14 @@ const game = () => {
     const playBtn = document.querySelector(".intro .btn");
     const introScreen = document.querySelector(".intro");
     const match = document.querySelector(".match");
+    const resetGame = document.querySelector(".resetGame");
 
     playBtn.addEventListener("click", function () {
       introScreen.classList.add("fadeOut");
       match.classList.add("fadeIn");
+      resetGame.classList.add("fadeIn");
+      match.style.transition = "opacity 0.5s ease 0.5s";
+      resetGame.style.transition = "opacity 0.5s ease 0.5s";
     });
   };
   //Play Match
@@ -67,6 +71,19 @@ const game = () => {
     computerScore.textContent = cScore;
   };
 
+  const gameWinner = () => {
+    let winnerPoint = 3;
+    if (pScore === winnerPoint) {
+      console.log("win player");
+      return;
+    } else if (cScore === winnerPoint) {
+      console.log("win Computer");
+      return;
+    } else {
+      return;
+    }
+  };
+
   const compareHands = (playerChoice, computerChoice) => {
     //Update Text
     const winner = document.querySelector(".winner");
@@ -81,11 +98,13 @@ const game = () => {
         winner.textContent = "Player wins";
         pScore++;
         updateScore();
+        gameWinner();
         return;
       } else {
         winner.textContent = "Computer wins";
         cScore++;
         updateScore();
+        gameWinner();
         return;
       }
     }
@@ -95,11 +114,13 @@ const game = () => {
         winner.textContent = "Player wins";
         pScore++;
         updateScore();
+        gameWinner();
         return;
       } else {
         winner.textContent = "Computer wins";
         cScore++;
         updateScore();
+        gameWinner();
         return;
       }
     }
@@ -109,19 +130,41 @@ const game = () => {
         winner.textContent = "Player wins";
         pScore++;
         updateScore();
+        gameWinner();
         return;
       } else {
         winner.textContent = "Computer wins";
         cScore++;
         updateScore();
+        gameWinner();
         return;
       }
     }
   };
 
+  const resetGame = () => {
+    const playerHand = document.querySelector(".player-hand");
+    const computerHand = document.querySelector(".computer-hand");
+    const resetBtn = document.querySelector(".reset-btn");
+    const winner = document.querySelector(".winner");
+    const playerScore = document.querySelector(".player-score p");
+    const computerScore = document.querySelector(".computer-score p");
+
+    resetBtn.addEventListener("click", function () {
+      pScore = 0;
+      cScore = 0;
+      playerHand.src = `assets/img/rock.png`;
+      computerHand.src = `assets/img/rock.png`;
+      winner.textContent = "Choose an option";
+      updateScore();
+      return;
+    });
+  };
+
   //call all the inner function
   startGame();
   playMatch();
+  resetGame();
 };
 
 //start the game function
